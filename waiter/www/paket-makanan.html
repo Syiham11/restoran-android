@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="Epsilon, mobile, framework, css3, html5, javascript, retina" />
+    <meta name="Description" content="Epsilon based mobile retina webpp template!" />
+    <!--Favicon shortcut link-->
+    <link type="image/x-icon" rel="shortcut icon" href="img/splash/favicon.ico" />
+    <link type="image/x-icon" rel="icon" href="img/splash/favicon.ico" />
+    <!--Declare page as mobile friendly -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- Declare page as iDevice WebApp friendly -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- iDevice WebApp Splash Screen, Regular Icon, iPhone, iPad, iPod Retina Icons -->
+    <link rel="apple-touch-icon" sizes="114x114" href="img/splash/splash-icon.png">
+    <link rel="apple-touch-startup-image" href="img/splash/splash-screen.png" media="screen and (max-device-width: 320px)" />
+    <link rel="apple-touch-startup-image" href="img/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+    <link rel="apple-touch-startup-image" href="img/splash/splash-screen@3x.png" sizes="640x1096">
+
+    <!-- Page Title -->
+    <title>Epsilon Framework</title>
+
+    <!-- Stylesheet Load -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/framework-style.css" rel="stylesheet" type="text/css">
+    <link href="css/framework.css" rel="stylesheet" type="text/css">
+    <link href="css/icons.css" rel="stylesheet" type="text/css">
+    <link href="css/retina.css" rel="stylesheet" type="text/css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" />
+
+    <!--Page Scripts Load -->
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-min.js" type="text/javascript"></script>
+    <script src="js/paket-makanan.js" type="text/javascript"></script>
+    <!--
+    <script src="js/contact.js" type="text/javascript"></script>
+    <script src="js/swipe.js" type="text/javascript"></script>
+    <script src="js/klass.min.js" type="text/javascript"></script>
+    <script src="js/photoswipe.js" type="text/javascript"></script>
+    <script src="js/colorbox.js" type="text/javascript"></script>
+    -->
+    <script src="js/retina.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+</head>
+
+<body onload="cekLogin()">
+
+    <div id="preloader">
+        <div id="status">
+            <p class="center-text">
+                Loading the content...
+                <em>Loading depends on your connection speed!</em>
+            </p>
+        </div>
+    </div>
+
+    <div id="page-content" class="page-content">
+        <div class="header">
+            <a href="#" class="show-sidebar"></a>
+            <a href="#" class="hide-sidebar"></a>
+            <p>Paket Makanan</p>
+            <a href="paket-makanan.html" class="header-reload"></a>
+        </div>
+        <div class="header-decoration"></div>
+
+        <div class="container">
+            <img class="logo" src="img/misc/JMRS-site-logo-new.png" alt="logo">
+        </div>
+
+        <div class="content" id="content">
+
+            <div class="decoration"></div>
+            <!--Tables-->
+            <div class="container no-bottom">
+
+                <div class="notification-box red-box" id="conn_failed" style="display:none">
+                    <h4>Koneksi ke Server terputus</h4>
+                    <a href="#" class="close-notification">x</a>
+                    <div class="clear"></div>
+                    <p>
+                        Mohon periksa koneksi internet anda.
+                    </p>
+                </div>
+
+                <div class="notification-box red-box" id="data_not_found" style="display:none">
+                    <h4>Belum ada data</h4>
+                    <a href="#" class="close-notification">x</a>
+                    <div class="clear"></div>
+                </div>
+
+                <form method="post" id="paket-makananForm" style="display:none">
+                    <fieldset>
+
+                        <div class="formFieldWrap">
+                            <label class="field-title contactNameField" for="contactNameField">Nama:<span>(required)</span>
+                            </label>
+                            <input type="text" name="nama" id="nama" class="contactField requiredField" />
+                        </div>
+                        <div class="formFieldWrap">
+                            <label class="field-title contactEmailField" for="contactEmailField">Harga: <span>(required)</span>
+                            </label>
+                            <input type="text" name="harga" id="harga" class="contactField requiredField requiredEmailField" />
+                        </div>
+
+
+
+                        <div class="formFieldWrap">
+                            <label class="field-title contactEmailField" for="contactEmailField">Diskon: <span>(required)</span>
+                            </label>
+                            <input type="text" name="diskon" id="diskon" class="contactField requiredField requiredEmailField" />
+                        </div>
+
+                        <div class="formTextareaWrap">
+                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Jenis: <span>(required)</span>
+                            </label>
+                            <select name="jenis" id="jenis">
+                                <option value="makanan">Makanan</option>
+                                <option value="minuman">Minuman</option>
+                            </select>
+                        </div>
+
+                        <div class="formTextareaWrap">
+                            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Status Tersedia: <span>(required)</span>
+                            </label>
+                            <select name="status" id="tersedia">
+                                <option value="Y">Ada</option>
+                                <option value="N">Tidak</option>
+                            </select>
+                        </div>
+
+
+                        <div class="formSubmitButtonErrorsWrap">
+                            <input type="button" class="buttonWrap button grey contactSubmitButton" value="Cancel" onclick="cancel()" data-formId="contactForm" />
+                            <input type="button" class="buttonWrap button grey contactSubmitButton" onclick="act_add();return false" id="SubmitButton" value="Submit" style="float:right" data-formId="contactForm" />
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="column" id="column_table">
+                    <div id="btn_tambah">
+                        <a href="#" class="bottom demo-button button grey fullscreen-button" onclick="add()"> + Tambah Data</a>
+                    </div>
+
+                    <table cellspacing='0' class="table" id="table_data" style="display:none">
+                        <tr>
+                            <th class="even">Nama</th>
+                            <th class="even">Harga</th>
+                            <th class="even">Status</th>
+                            <th class="even">#</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <p class="center-text">Copyright 2013. All rights reseved!</p>
+        </div>
+    </div>
+
+    <div class="page-sidebar" id="page-sidebar">
+        <div class="page-sidebar-scroll">
+            <a href="#" class="sidebar-button" onclick="logout();return false"><em class="sidebar-button-logoff">SIGN OUT</em></a>
+            <a href="#" class="sidebar-button" id="profile-link"><em class="sidebar-button-profile">PROFILE</em></a>
+            <a href="mailto:mail@doamain.com" class="sidebar-button hide2-sidebar"><em class="sidebar-button-close">COLLAPSE</em></a>
+            <div class="clear"></div>
+
+            <img class="sidebar-logo" src="img/misc/JMRS-site-logo-new_w.png" alt="img">
+
+            <div class="menu" id="menu-sidebar">
+
+                
+            </div>
+
+            <p class="sidebar-copyright center-text">Copyright 2013. All rights reserved!</p>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+    <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
+    <script src="intelxdk.js"></script>
+    <!-- phantom library, needed for XDK api calls -->
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls -->
+    <script src="xhr.js"></script>
+    <!-- phantom library, needed for XDK CORS -->
+
+    <script src="js/app.js"></script>
+    <script src="js/init-app.js"></script>
+    <script src="js/init-dev.js"></script>
+    
+    <script>
+        $.get(rootWebService + '/menu_sidebar.php',function( data ) {
+            $("#menu-sidebar").html(data);              
+            $('#paket').find('a').removeClass('menu-disabled').addClass('menu-enabled');
+            //$('#paket').find('div').find('a').addClass('submenu-active');
+        });
+    </script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,14 @@
+edit data pesanan, hapus, dan tambah pesanan. di dapur
+--> edit,hapus tidak dapat dilakukan setelah pesanan masuk ke dapur, karena ada kemungkinan pesanan sudah diproses.
+--> tambah pesanan dianggap pesanan baru , namun karena system yang sekarang menghilangkan meja yang ada pada list saat meja ditempati maka ????
+
+ganti menu meja di awal masuk, pesanan makanan dan minumana dijadikan satu. OK
+--> tidak ada perbedaan meja dipilih diawal dengan dengan jika dipilih sesudah melakukan pemesanan,
+    karena pengiriman data dilakukan saat tombol kirim data ditekan.
+--> jika pemilihan pesanan makanan & minuman dijadikan satu, maka ada kemungkinan akan terlalu panjang jika list makanan dan minuman yang ada berjumlah banyak
+
+
+fasilitas pindah meja OK
+--> menungkinkan dilakukan
+
+babacheaf
